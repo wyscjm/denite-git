@@ -78,7 +78,7 @@ function! denite#git#show(args, option)
   let gitdir = get(a:option, 'gitdir', '')
   let showall = get(a:option, 'all', 0)
   if empty(gitdir) | return | endif
-  let format = "--pretty=format:'".s:escape("commit %H%nparent %P%nauthor %an <%ae> %ad%ncommitter %cn <%ce> %cd%n %e%n%n%s%n%n%b")."' "
+  let format = '--pretty=format:"'.s:escape("commit %H%nparent %P%nauthor %an <%ae> %ad%ncommitter %cn <%ce> %cd%n %e%n%n%s%n%n%b").'" '
   if showall
     let command = 'git --no-pager --git-dir=' . gitdir
       \. ' show  --no-color ' . format . a:args
